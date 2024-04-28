@@ -37,7 +37,7 @@ const SnowingBackground = () => {
 
 
   return (
-    <div className="h-screen w-full bg-red-700 relative">
+    <div className="h-screen w-full relative">
       <img src={BackgroundImage} className="w-full h-full object-cover" />
       <canvas className='absolute inset-0' ref={canvasRef}></canvas>
     </div>
