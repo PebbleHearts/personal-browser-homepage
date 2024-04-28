@@ -6,7 +6,7 @@ export type DesktopProps = {
 
 const Desktop = ({ children }: DesktopProps) => {
   return (
-    <div className="w-full h-screen relative bg-green-500">
+    <div className="w-full h-screen relative">
       <DesktopIconsSection />
       {children}
     </div>
