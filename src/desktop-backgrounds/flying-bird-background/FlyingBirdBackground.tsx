@@ -1,8 +1,12 @@
 import { useEffect, useRef } from 'react';
-import BackgroundImage from './background_image.jpg';
-import { Particle } from './types';
+import BackgroundImage from './background_image2.jpg';
+import SpriteImage from './bird_sprite.png';
+import { Bird } from './entities';
 
-const SnowingBackground = () => {
+const image = new Image();
+image.src = SpriteImage;
+
+const FlyingBirdBackground = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -13,25 +17,26 @@ const SnowingBackground = () => {
     canvas.height = window.innerHeight;
     const ctx = canvas.getContext("2d");
 
-    const count = 100;
-    const particles: Particle[] = [];
-
+    const numberOfBirds = 5;
+    const birds: Bird[] = [];
     if (ctx) {
-      for (let i = 0; i < count; i++) {
-        particles.push(new Particle(canvas.width, canvas.height));
+      for (let i = 0; i < numberOfBirds; i++) {
+        birds.push(new Bird(canvas.width, canvas.height));
       }
 
       const animate = () => {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particles.forEach((particle) => {
-          particle.draw(ctx)
-          particle.update();
+        birds.forEach((bird) => {
+          bird.draw(ctx)
+          bird.update();
         })
         window.requestAnimationFrame(animate)
       };
 
       animate();
     }
+
+
   }, []);
 
 
@@ -44,4 +49,4 @@ const SnowingBackground = () => {
   )
 };
 
-export default SnowingBackground;
+export default FlyingBirdBackground;
