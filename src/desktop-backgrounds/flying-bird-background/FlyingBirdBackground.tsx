@@ -10,6 +10,7 @@ const FlyingBirdBackground = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
+    let isCleanedUp = false;
     const { current: canvas } = canvasRef;
     if (!canvas) return;
 
@@ -29,14 +30,19 @@ const FlyingBirdBackground = () => {
         birds.forEach((bird) => {
           bird.draw(ctx)
           bird.update();
-        })
-        window.requestAnimationFrame(animate)
+        });
+
+        if (!isCleanedUp) {
+          window.requestAnimationFrame(animate)
+        }
       };
 
       animate();
     }
 
-
+    return () => {
+      isCleanedUp = true;
+    }
   }, []);
 
 

@@ -1,4 +1,6 @@
+import DesktopHeader from "../components/desktop-header/DesktopHeader";
 import DesktopIconsSection from "../components/desktop-icons-section/DesktopIconsSection";
+import DesktopOverlay from "../components/desktop-overlay/DesktopOverlay";
 
 export type DesktopProps = {
   children: JSX.Element;
@@ -7,8 +9,10 @@ export type DesktopProps = {
 const Desktop = ({ children }: DesktopProps) => {
   return (
     <div className="w-full h-screen relative">
-      {/* TODO: wrap with another componene named DesktopOverlay if we need to display other things too in the desktop */}
-      <DesktopIconsSection />
+      <DesktopOverlay>
+        <DesktopHeader />
+        <DesktopIconsSection />
+      </DesktopOverlay>
       {children}
     </div>
   );

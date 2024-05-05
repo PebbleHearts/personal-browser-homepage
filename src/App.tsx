@@ -1,12 +1,15 @@
-import FlyingBirdBackground from "./desktop-backgrounds/flying-bird-background/FlyingBirdBackground";
-// import SnowingBackground from "./desktop-backgrounds/snowing-background/SnowingBackground";
+import { useContext } from "react";
+import { AnimatedBackgroundsList } from "./constants/animatedBackgrounds";
+import { BackgroundContext } from "./context/BackgroundContext";
 import Desktop from "./layout/Desktop";
 
 function App() {
+  const { currentBackground } = useContext(BackgroundContext);
+
+  const CurrentBackground = AnimatedBackgroundsList[currentBackground];
   return (
     <Desktop>
-      <FlyingBirdBackground />
-      {/* <SnowingBackground /> */}
+      <CurrentBackground key={currentBackground} />
     </Desktop>
   );
 }

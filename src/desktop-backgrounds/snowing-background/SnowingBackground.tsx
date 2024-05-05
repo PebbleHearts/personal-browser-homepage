@@ -6,6 +6,7 @@ const SnowingBackground = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
+    let isCleanedUp = false;
     const { current: canvas } = canvasRef;
     if (!canvas) return;
 
@@ -27,10 +28,16 @@ const SnowingBackground = () => {
           particle.draw(ctx)
           particle.update();
         })
-        window.requestAnimationFrame(animate)
+        if (!isCleanedUp) {
+          window.requestAnimationFrame(animate)
+        }
       };
 
       animate();
+    }
+
+    return () => {
+      isCleanedUp = true;
     }
   }, []);
 

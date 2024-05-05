@@ -14,7 +14,7 @@ const DesktopIconsList = [
 
 const DesktopIconsSection = () => {
   return (
-    <div className='absolute inset-0 flex flex-col items-start p-5 gap-2 z-50'>
+    <div className='p-5'>
       {DesktopIconsList.map((desktopIconItem) => (
         <div key={desktopIconItem.label} className='flex flex-col items-center'>
           <div className='p-5 bg-white/10 hover:bg-white/15 cursor-pointer rounded-xl'>
