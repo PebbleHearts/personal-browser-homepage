@@ -1,18 +1,13 @@
-import DesktopHeader from "../components/desktop-header/DesktopHeader";
-import DesktopIconsSection from "../components/desktop-icons-section/DesktopIconsSection";
-import DesktopOverlay from "../components/desktop-overlay/DesktopOverlay";
+import { ReactNode } from "react";
 
 export type DesktopProps = {
-  children: JSX.Element;
+  children: ReactNode;
 };
 
 const Desktop = ({ children }: DesktopProps) => {
   return (
     <div className="w-full h-screen relative">
-      <DesktopOverlay>
-        <DesktopHeader />
-        <DesktopIconsSection />
-      </DesktopOverlay>
+
       {children}
     </div>
   );
