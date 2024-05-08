@@ -7,7 +7,6 @@ export type DesktopProps = {
 const Desktop = ({ children }: DesktopProps) => {
   return (
     <div className="w-full h-screen relative">
-
       {children}
     </div>
   );
