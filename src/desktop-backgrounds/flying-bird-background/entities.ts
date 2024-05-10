@@ -51,7 +51,6 @@ export class Bird {
     update() {
         this.x += this.speedX;
             this.frame = Math.floor(Math.abs((this.x / 30) % 5));
-            console.log(this.frame);
             if (this.frame >= FrameToSpriteMapping.length) this.frame = 0;
             this.spriteXOffset = FrameToSpriteMapping[this.frame].x;
             this.spriteYOffset = FrameToSpriteMapping[this.frame].y;

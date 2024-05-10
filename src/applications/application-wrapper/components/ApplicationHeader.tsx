@@ -1,5 +1,12 @@
+import { ApplicationEvents } from "../../../constants/applications";
+import { eventEmitter } from "../../../constants/eventEmitter";
+
 type ApplicationHeaderProps = {
   name: string;
+}
+
+const handleAppClose = () => {
+  eventEmitter.emit(ApplicationEvents.CLOSE);
 }
 
 const ApplicationHeader = ({ name }: ApplicationHeaderProps) => {
@@ -10,7 +17,7 @@ const ApplicationHeader = ({ name }: ApplicationHeaderProps) => {
           {name}
         </h3>
       </div>
-      <div className="px-5 py-3 hover:bg-white/25 cursor-pointer">
+      <div className="px-5 py-3 hover:bg-white/25 cursor-pointer" onClick={handleAppClose}>
         <div>X</div>
       </div>
     </div>
