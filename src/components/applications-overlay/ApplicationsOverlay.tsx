@@ -8,7 +8,7 @@ export type DesktopOverlayProps = {
 const ApplicationsOverlay = ({ children, hasOpenApp }: DesktopOverlayProps) => {
   return (
     <div
-      className={`absolute inset-32 rounded-md overflow-hidden flex flex-col items-start z-50 bg-gray-900 pointer-events-auto opacity-0 ${hasOpenApp && 'pointer-events-auto opacity-100'}`}
+      className={`absolute inset-2 rounded-md overflow-hidden flex flex-col items-start z-50 bg-gray-900 pointer-events-none opacity-0 ${hasOpenApp && 'pointer-events-auto opacity-100'}`}
     >
       {children}
     </div>
