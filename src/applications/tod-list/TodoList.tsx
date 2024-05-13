@@ -1,10 +1,12 @@
-import ApplicationWrapper from "../application-wrapper/ApplicationWrapper";
+import ItemsContainer from "./components/items-container/ItemsContainer";
+import Sidebar from "./components/sidebar/Sidebar";
 
 const TodoList = () => {
   return (
-    <ApplicationWrapper applicationName='Todo List'>
-      <div>Todo List application</div>
-    </ApplicationWrapper>
+      <div className="w-full flex flex-row overflow-y-auto p-5 gap-5">
+        <Sidebar />
+        <ItemsContainer />
+      </div>
   );
 }
 

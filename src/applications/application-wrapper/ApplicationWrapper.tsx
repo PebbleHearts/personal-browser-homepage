@@ -8,9 +8,9 @@ type ApplicationWrapperProps = {
 
 const ApplicationWrapper = ({ applicationName, children }: ApplicationWrapperProps) => {
   return (
-    <div className='w-full h-full text-white'>
+    <div className='w-full h-full text-white flex flex-col'>
       <ApplicationHeader name={applicationName} />
-      <div className="p-5">
+      <div className="flex-1 w-full flex overflow-y-auto">
         {children}
       </div>
     </div>
