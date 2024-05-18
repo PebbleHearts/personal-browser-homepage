@@ -1,3 +1,5 @@
+import TodoItem from "../todo-item/TodoItem";
+
 const TODO_ITEMS = [
   {
     id: 1,
@@ -23,14 +25,12 @@ const ItemsContainer: React.FC = () => {
   return (
     <div className="flex-1 flex flex-col gap-2">
       {TODO_ITEMS.map((item) => (
-        <div className="p-3 bg-gray-950/75 rounded-lg">
-          <div>
-            {item.title}
-          </div>
-          <div>
-            {item.description}
-          </div>
-        </div>
+        <TodoItem
+          key={item.id}
+          title={item.title}
+          description={item.description}
+          completed={item.completed}
+        />
       ))}
     </div>
   );
