@@ -16,7 +16,7 @@ export const todosApi = createApi({
         body: { title, description, projectId },
       }),
     }),
-    getProjectTodos: builder.query<ProjectItem[], { projectId: string }>({
+    getProjectTodos: builder.query<ProjectItem[], { projectId: number }>({
       query: ({ projectId }) => `/todos/project/${projectId}`,
     }),
   }),
