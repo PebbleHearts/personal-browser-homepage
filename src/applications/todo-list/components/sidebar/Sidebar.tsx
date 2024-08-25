@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { ProjectItem } from "../../types";
 
 type ListItemProps = {
@@ -14,19 +14,20 @@ const ListItem = ({ name, isSelected, onSelect }: ListItemProps) => {
 
 type SidebarProps = {
   projects: ProjectItem[] | undefined;
+  selectedProject:  number | null;
+  setSelectedProject: React.Dispatch<React.SetStateAction<number | null>>;
 };
 
-const Sidebar = ({ projects }: SidebarProps) => {
-  const [selectedProject, setSelectedProject] = useState<number | null>(null);
+const Sidebar = ({ projects, selectedProject, setSelectedProject }: SidebarProps) => {
+  
 
   useEffect(() => {
     if (projects && projects.length > 0) {
       setSelectedProject(projects[0].id);
     }
-  }, [projects]);
+  }, [projects, setSelectedProject]);
 
   const handleSelect = (id: number) => {
-    console.log(id);
     setSelectedProject(id);
   };
 

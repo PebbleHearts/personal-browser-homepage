@@ -9,7 +9,17 @@ export const todosApi = createApi({
     getProjects: builder.query<ProjectItem[], unknown>({
       query: () => `/todos/projects`,
     }),
+    createTodo: builder.mutation<ProjectItem, { title: string, description: string, projectId: number }>({
+      query: ({ title, description, projectId }) => ({
+        url: `/todos`,
+        method: 'POST',
+        body: { title, description, projectId },
+      }),
+    }),
+    getProjectTodos: builder.query<ProjectItem[], { projectId: string }>({
+      query: ({ projectId }) => `/todos/project/${projectId}`,
+    }),
   }),
 })
 
-export const { useGetProjectsQuery } = todosApi;
+export const { useGetProjectsQuery, useCreateTodoMutation, useGetProjectTodosQuery } = todosApi;
