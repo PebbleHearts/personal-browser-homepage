@@ -5,6 +5,7 @@ import { ProjectItem } from '../types';
 export const todosApi = createApi({
   reducerPath: 'todoApi',
   baseQuery: getBaseQuery(),
+  tagTypes: ['ProjectTodos'],
   endpoints: (builder) => ({
     getProjects: builder.query<ProjectItem[], unknown>({
       query: () => `/todos/projects`,
@@ -15,9 +16,11 @@ export const todosApi = createApi({
         method: 'POST',
         body: { title, description, projectId },
       }),
+      invalidatesTags: ['ProjectTodos'],
     }),
     getProjectTodos: builder.query<ProjectItem[], { projectId: number }>({
       query: ({ projectId }) => `/todos/project/${projectId}`,
+      providesTags: ['ProjectTodos']
     }),
   }),
 })
