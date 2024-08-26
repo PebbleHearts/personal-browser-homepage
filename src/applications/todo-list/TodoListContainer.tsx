@@ -1,11 +1,12 @@
 import ApplicationWrapper from "../application-wrapper/ApplicationWrapper";
+import TodoList from "./TodoList";
 
-const TodoList = () => {
+const TodoListContainer = () => {
   return (
     <ApplicationWrapper applicationName='Todo List'>
-      <div>Todo List application</div>
+      <TodoList />
     </ApplicationWrapper>
   );
 }
 
-export default TodoList;
+export default TodoListContainer;

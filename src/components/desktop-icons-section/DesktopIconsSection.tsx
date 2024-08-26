@@ -7,7 +7,7 @@ const handleIconClick = (key: Application) => () => {
 
 const DesktopIconsSection = () => {
   return (
-    <div className='p-5'>
+    <div className='p-5 flex flex-col items-start'>
       {DesktopIconsList.map((desktopIconItem) => (
         <div key={desktopIconItem.label} className='flex flex-col items-center'>
           <div className='p-5 bg-white/10 hover:bg-white/15 cursor-pointer rounded-xl' onClick={handleIconClick(desktopIconItem.key)}>

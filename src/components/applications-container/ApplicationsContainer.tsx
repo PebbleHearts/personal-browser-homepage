@@ -3,7 +3,7 @@ import ApplicationsOverlay from "../applications-overlay/ApplicationsOverlay";
 import { eventEmitter } from "../../constants/eventEmitter";
 import { Application, ApplicationEvents } from "../../constants/applications";
 import Bookmark from "../../applications/bookmark/Bookmark";
-import TodoList from "../../applications/tod-list/TodoList";
+import TodoList from "../../applications/todo-list/TodoListContainer";
 
 const ApplicationsContainer = () => {
   const [currentApp, setCurrentApp] = useState<Application | null>(null);
@@ -31,7 +31,7 @@ const ApplicationsContainer = () => {
         return <TodoList />
       default:
         return null;
-    };
+    }
   };
 
   return (
