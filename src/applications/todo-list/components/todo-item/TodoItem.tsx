@@ -1,3 +1,6 @@
+import { CustomSelect } from "@/components/custom-select/CustomSelect";
+import { useState } from "react";
+
 type TodoItemProps = {
   title: string;
   description: string;
@@ -5,16 +8,24 @@ type TodoItemProps = {
 };
 
 const TodoItem = ({ title, description }: TodoItemProps) => {
+  const [status, setStatus] = useState("In Progress");
   return (
-    <div className="p-3 bg-gray-950/75 rounded-lg">
+    <div className="flex flex-row justify-between items-center p-3 bg-gray-950/75 rounded-lg">
       <div>
-        {title}
+        <div>{title}</div>
+        <div>{description}</div>
       </div>
-      <div>
-        {description}
-      </div>
+      <CustomSelect
+        options={[
+          { key: "todo", value: "todo" },
+          { key: "In Progress", value: "In Progress" },
+        ]}
+        placeholder="Select Status"
+        value={status}
+        onSelect={(val) => setStatus(val)}
+      />
     </div>
   );
-}
+};
 
 export default TodoItem;
